@@ -73,8 +73,8 @@ Game.prototype.step =  function() {
 
 Game.prototype.remove = function(asteroid) {
   if (asteroid === this.ship) {
-    // this.ship.relocate(this.randomPosition());
-    this.ship.pos = this.randomPosition();
+    this.ship.relocate(this.randomPosition());
+    // this.ship.pos = this.randomPosition();
   } else {
     index = this.asteroids.indexOf(asteroid);
     this.asteroids.splice(index,1);

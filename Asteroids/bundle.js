@@ -175,7 +175,7 @@
 	MovingObject = __webpack_require__(1);
 	Util = __webpack_require__(2);
 
-	const Asteroid = function(hash) {
+	function Asteroid (hash) {
 
 	  Asteroid.RADIUS = 10;
 	  Asteroid.COLOR = '#DA70D6';
@@ -186,7 +186,7 @@
 	  hash.vel = Asteroid.VEL;
 
 	  MovingObject.call(this, hash);
-	};
+	}
 
 	Util.inherits(Asteroid, MovingObject);
 
@@ -272,8 +272,8 @@
 
 	Game.prototype.remove = function(asteroid) {
 	  if (asteroid === this.ship) {
-	    // this.ship.relocate(this.randomPosition());
-	    this.ship.pos = this.randomPosition();
+	    this.ship.relocate(this.randomPosition());
+	    // this.ship.pos = this.randomPosition();
 	  } else {
 	    index = this.asteroids.indexOf(asteroid);
 	    this.asteroids.splice(index,1);
@@ -311,7 +311,7 @@
 	Util = __webpack_require__(2);
 
 
-	const Ship = function (hash) {
+	function Ship (hash) {
 	  Ship.RADIUS = 5;
 	  Ship.COLOR = "#FFEFD5";
 	  Ship.VEL = [0, 0];
@@ -321,14 +321,14 @@
 	  hash.vel = Ship.VEL;
 
 	  MovingObject.call(this, hash);
-	};
+	}
+
+	Util.inherits(Ship, MovingObject);
 
 	Ship.prototype.relocate = function(pos) {
 	  this.vel = [0, 0];
 	  this.pos = pos;
 	};
-
-	Util.inherits(Ship, MovingObject);
 
 	module.exports = Ship;
 
